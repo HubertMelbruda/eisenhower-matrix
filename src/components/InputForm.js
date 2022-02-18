@@ -68,16 +68,16 @@ class InputForm extends Component {
         </div>
         <div className="buttonsContainer">
           <button className="btnOne" name="one" onClick={this.handleClick}>
-            1.Important / Urgent
+            1.Do First
           </button>
           <button className="btnTwo" name="two" onClick={this.handleClick}>
-            2. Important / Not urgent
+            2. Schedule
           </button>
           <button className="btnThree" name="three" onClick={this.handleClick}>
-            3. Unimportant / Urgent
+            3. Delegate
           </button>
           <button className="btnFour" name="four" onClick={this.handleClick}>
-            4. Unimportant / Not urgent
+            4. Don't do
           </button>
         </div>
       </>

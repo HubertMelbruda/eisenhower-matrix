@@ -47,6 +47,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 1100px;
+  margin: 0 auto;
 }
 
 .one,
@@ -169,6 +171,7 @@
   text-align: center;
   padding: 10px 24px;
   margin: 5px 10px;
+  width: 230px;
   min-height: 14px;
   min-width: 14px;
   color: #202223;

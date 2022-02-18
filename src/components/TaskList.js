@@ -64,7 +64,7 @@ const TaskList = (props) => {
   return (
     <>
       <div className="one">
-        <div className="headerOne">Important and Urgent</div>
+        <div className="headerOne">Do First</div>
         <div className="list">{one}</div>
         <div className="oneDone">
           <div className="headerOne">Finished</div>
@@ -73,15 +73,15 @@ const TaskList = (props) => {
       </div>
 
       <div className="two">
-        <div className="headerTwo">Important and Not Urgent</div>
+        <div className="headerTwo">Schedule</div>
         <div className="list">{two}</div>
       </div>
       <div className="three">
-        <div className="headerThree">Unimportant and Urgent</div>
+        <div className="headerThree">Delegate</div>
         <div className="list">{three}</div>
       </div>
       <div className="four">
-        <div className="headerFour">Unimportant and Not Urgent</div>
+        <div className="headerFour">Don't do</div>
         <div className="list">{four}</div>
       </div>
     </>
