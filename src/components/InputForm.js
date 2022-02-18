@@ -24,13 +24,17 @@ class InputForm extends Component {
     const { text, date } = this.state;
     const status = event.target.name;
 
-    const addTask = this.props.addTask(text, date, status); // this.props bo propsy sa przekazane do komponentu? dlaczego nie props.addTask ( bo nie sa przekazane do metody? )
+    if (this.state.text === "") {
+      alert("Please enter your task");
+    } else {
+      const addTask = this.props.addTask(text, date, status);
 
-    if (addTask) {
-      this.setState({
-        text: "",
-        date: this.minDate,
-      });
+      if (addTask) {
+        this.setState({
+          text: "",
+          date: this.minDate,
+        });
+      }
     }
   };
 
@@ -39,12 +43,12 @@ class InputForm extends Component {
       <>
         <div className="form">
           <label htmlFor="input">
-            Enter your task:
+            Create new task:
             <input
               type="text"
               id="text"
               name="text"
-              placeholder="Tape a task"
+              placeholder="Create new task..."
               value={this.state.text}
               onChange={this.handleTextInput}
             />
@@ -63,16 +67,16 @@ class InputForm extends Component {
           </label>
         </div>
         <div className="buttonsContainer">
-          <button className="addButton" name="one" onClick={this.handleClick}>
+          <button className="btnOne" name="one" onClick={this.handleClick}>
             1.Important / Urgent
           </button>
-          <button className="addButton" name="two" onClick={this.handleClick}>
+          <button className="btnTwo" name="two" onClick={this.handleClick}>
             2. Important / Not urgent
           </button>
-          <button className="addButton" name="three" onClick={this.handleClick}>
+          <button className="btnThree" name="three" onClick={this.handleClick}>
             3. Unimportant / Urgent
           </button>
-          <button className="addButton" name="four" onClick={this.handleClick}>
+          <button className="btnFour" name="four" onClick={this.handleClick}>
             4. Unimportant / Not urgent
           </button>
         </div>

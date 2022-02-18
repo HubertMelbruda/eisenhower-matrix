@@ -23,26 +23,13 @@
 .form {
   display: flex;
   justify-content: flex-start;
-  flex-direction:row;
+  flex-direction: row;
   flex-wrap: wrap;
-  padding-bottom: 10px;
   margin: 10px;
   border: 1px solid #000000;
   border-radius: 10px;
-  background-color: rgb(188, 216, 186);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-}
-
-.personCard {
-  display: flex;
-  margin: 10px;
-  padding: 30px;
-  border: 1px solid #000000;
-  border-radius: 10px;
-  justify-content: space-between;
-  align-items: center;
   background-color: rgb(255, 255, 255);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .container {
@@ -51,7 +38,9 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  
+  width: 1100px;
+  margin: 0 auto;
+
 }
 
 .buttonsContainer {
@@ -60,59 +49,124 @@
   align-items: center;
 }
 
-
 .one,
 .two,
 .three,
 .four {
   display: flex;
-  justify-content:center;
-  align-items: center;
   flex-direction: column;
-  flex-wrap: wrap;
-  margin: 10px 50px;
-  min-width: 300px;
-  min-height: 300px;
+  margin: 10px 10px;
+  min-width: 500px;
+  min-height: 500px;
+  /* border: 1px solid #000000; */
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.btnOne,
+.one {
+  border: 1px solid rgb(138, 211, 54);
+  border-left: 15px solid rgb(138, 211, 54);
+}
+
+.btnTwo,
+.two {
+  border: 1px solid rgb(45, 237, 255);
+  border-left: 15px solid rgb(45, 237, 255);
+}
+
+
+.btnThree,
+.three {
+  border: 1px solid rgb(255, 173, 65);
+  border-left: 15px solid rgb(255, 173, 65);
+}
+
+.btnFour,
+.four {
+  border: 1px solid rgb(255, 97, 69);
+  border-left: 15px solid rgb(255, 97, 69);
+}
+
+.headerOne,
+.headerTwo,
+.headerThree,
+.headerFour {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid black;
+}
+
+.headerOne {
+  border-bottom: 3px solid rgb(138, 211, 54);
+}
+
+.headerTwo {
+  border-bottom: 3px solid rgb(45, 237, 255);
+}
+
+.headerThree {
+  border-bottom: 3px solid rgb(255, 173, 65);
+}
+
+.headerFour {
+  border-bottom: 3px solid rgb(255, 97, 69);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  font-weight: bolder;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 10px;
+  padding: 5px;
   border: 1px solid #000000;
   border-radius: 10px;
-  background-color: rgb(0, 255, 128);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-.two {
-  background-color: rgb(38, 186, 255);
-}
-
-.three {
-  background-color: rgb(255, 141, 11);
-}
-.four {
-  background-color: rgb(255, 94, 94);
+.date {
+  font-size: 12px;
+  margin-left: auto;
+  margin-right: 10px;
+  background-color: #ffffff;
 }
 
 .delButton {
   display: inline-block;
-  outline: 0;
   cursor: pointer;
   text-align: center;
-  border: 1px solid #000000;
-  padding: 10px 24px;
-  margin: 0 50px;
-  min-height: 14px;
-  min-width: 14px;
-  color: #202223;
+  border: 1px solid #ff5b5b;
+  padding: 2px 6px;
+  min-height: 10px;
+  min-width: 10px;
+  color: #ff5b5b;
+  font-weight: bold;
   background: #ffffff;
   border-radius: 4px;
   font-size: 14px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-.addButton {
+.btnOne,
+.btnTwo,
+.btnThree,
+.btnFour {
   display: inline-block;
   outline: 0;
   cursor: pointer;
   text-align: center;
-  border: 1px solid #000000;
   padding: 10px 24px;
   margin: 5px 10px;
   min-height: 14px;
@@ -121,11 +175,11 @@
   background: #ffffff;
   border-radius: 4px;
   font-size: 14px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .drawButton:hover,
-.addButton:hover {
+.btnOne:hover {
   background: #cdffba;
   outline: 1px solid transparent;
   transition: 0.7s;
@@ -135,6 +189,7 @@
   background: #ff5b5b;
   outline: 1px solid transparent;
   transition: 0.7s;
+  color: #000000;
 }
 
 ul {
@@ -145,30 +200,22 @@ li {
   margin-left: 10px;
 }
 
-h2 {
-  padding: 20px;
-  border-bottom: 2px solid black;
-}
-
-h4 {
-  margin-bottom: 10px;
-}
-
-p {
-  margin-bottom: 50px;
-
-}
-
 label {
   padding: 10px;
-  margin-bottom: 10px;
-  margin-right: 200px;
 }
 
-input {
+#text {
   margin-left: 10px;
   padding: 3px;
+  width: 400px;
 }
 
+#date {
+  margin-left: 10px;
+}
 
-
+#checkbox {
+  margin-right: 10px;
+  min-height: 20px;
+  min-width: 20px;
+}
