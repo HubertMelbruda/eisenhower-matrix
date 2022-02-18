@@ -6,20 +6,59 @@ const TaskList = (props) => {
   const threeFiltered = props.tasks.filter((task) => task.status === "three");
   const fourFiltered = props.tasks.filter((task) => task.status === "four");
 
-  const one = oneFiltered.map((task) => (
-    <Task key={task.id} id={task.id} task={task} delete={props.delete} taskDone={props.taskDone} />
+  
+  const oneNotDoneFiltered = oneFiltered.filter((task) => task.done === false);
+  
+  const one = oneNotDoneFiltered.map((task) => (
+    <Task
+      key={task.id}
+      id={task.id}
+      task={task}
+      delete={props.delete}
+      taskDone={props.taskDone}
+    />
+  ));
+
+  const oneDoneFiltered = oneFiltered.filter((task) => task.done === true);
+
+  const oneDone = oneDoneFiltered.map((task) => (
+    <Task
+      key={task.id}
+      id={task.id}
+      task={task}
+      delete={props.delete}
+      taskDone={props.taskDone}
+    />
   ));
 
   const two = twoFiltered.map((task) => (
-    <Task key={task.id} id={task.id} task={task} delete={props.delete} taskDone={props.taskDone} />
+    <Task
+      key={task.id}
+      id={task.id}
+      task={task}
+      delete={props.delete}
+      taskDone={props.taskDone}
+    />
   ));
 
   const three = threeFiltered.map((task) => (
-    <Task key={task.id} id={task.id} task={task} delete={props.delete} taskDone={props.taskDone} />
+    <Task
+      key={task.id}
+      id={task.id}
+      task={task}
+      delete={props.delete}
+      taskDone={props.taskDone}
+    />
   ));
 
   const four = fourFiltered.map((task) => (
-    <Task key={task.id} id={task.id} task={task} delete={props.delete} taskDone={props.taskDone} />
+    <Task
+      key={task.id}
+      id={task.id}
+      task={task}
+      delete={props.delete}
+      taskDone={props.taskDone}
+    />
   ));
 
   return (
@@ -27,7 +66,12 @@ const TaskList = (props) => {
       <div className="one">
         <div className="headerOne">Important and Urgent</div>
         <div className="list">{one}</div>
+        <div className="oneDone">
+          <div className="headerOne">Finished</div>
+          <div className="list">{oneDone}</div>
+        </div>
       </div>
+
       <div className="two">
         <div className="headerTwo">Important and Not Urgent</div>
         <div className="list">{two}</div>
