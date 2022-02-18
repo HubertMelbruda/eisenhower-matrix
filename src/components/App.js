@@ -24,8 +24,6 @@ class App extends Component {
     }));
 
     this.counter++;
-
-    return true;
   };
 
   handleDelete = (id) => {
@@ -36,9 +34,7 @@ class App extends Component {
   }
 
   handleTaskDone = (id) => {
-    let tasks = [...this.state.tasks]
-
-    tasks = tasks.map(task => {
+    const tasks = this.state.tasks.map(task => {
       if (id === task.id) {
         task.done = !task.done
       }

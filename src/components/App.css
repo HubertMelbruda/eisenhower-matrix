@@ -89,10 +89,7 @@
   border-left: 15px solid rgb(255, 97, 69);
 }
 
-.headerOne,
-.headerTwo,
-.headerThree,
-.headerFour {
+.header {
   display: flex;
   justify-content: center;
   align-items: center;

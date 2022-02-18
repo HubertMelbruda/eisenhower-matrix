@@ -1,89 +1,89 @@
 import Task from "./Task";
 
 const TaskList = (props) => {
-  const oneFiltered = props.tasks.filter((task) => task.status === "one");
-  const twoFiltered = props.tasks.filter((task) => task.status === "two");
-  const threeFiltered = props.tasks.filter((task) => task.status === "three");
-  const fourFiltered = props.tasks.filter((task) => task.status === "four");
+  const filterTasks = (taskGroup) => {
+    return props.tasks.filter((task) => task.status === taskGroup);
+  }
 
+  const firstFiltered = filterTasks("one"); 
+  const secondFiltered = filterTasks("two"); 
+  const thirdFiltered = filterTasks("three");
+  const fourthFiltered = filterTasks("four");
   
-  const oneNotDoneFiltered = oneFiltered.filter((task) => task.done === false);
-  
-  const one = oneNotDoneFiltered.map((task) => (
-    <Task
-      key={task.id}
-      id={task.id}
-      task={task}
-      delete={props.delete}
-      taskDone={props.taskDone}
-    />
-  ));
+  const mapTasks = (tasks) => {
+    return tasks.map((task) => (
+        <Task
+          key={task.id}
+          id={task.id}
+          task={task}
+          delete={props.delete}
+          taskDone={props.taskDone}
+        />
+    ));
+  }
 
-  const oneDoneFiltered = oneFiltered.filter((task) => task.done === true);
+  const doneTasks = (tasks) => {
+    return tasks.filter((task) => task.done);
+  };
 
-  const oneDone = oneDoneFiltered.map((task) => (
-    <Task
-      key={task.id}
-      id={task.id}
-      task={task}
-      delete={props.delete}
-      taskDone={props.taskDone}
-    />
-  ));
+  const notDoneTasks = (tasks) => {
+    return tasks.filter((task) => !task.done);
+  }
 
-  const two = twoFiltered.map((task) => (
-    <Task
-      key={task.id}
-      id={task.id}
-      task={task}
-      delete={props.delete}
-      taskDone={props.taskDone}
-    />
-  ));
+  const groups = [
+    {
+      name: "one",
+      headerName: "headerOne",
+      tasks: mapTasks(notDoneTasks(firstFiltered)),
+      doneTasks: mapTasks(doneTasks(firstFiltered)),
+      text: "Important and urgent",
+      doneClassName: "oneDone",
+    },
+    {
+      name: "two",
+      headerName: "headerTwo",
+      tasks: mapTasks(notDoneTasks(secondFiltered)),
+      doneTasks: mapTasks(doneTasks(secondFiltered)),
+      text: "Lorem ipsum",
+      doneClassName: "twoDone",
+    },
+    {
+      name: "three",
+      headerName: "headerThree",
+      tasks: mapTasks(notDoneTasks(thirdFiltered)),
+      doneTasks: mapTasks(doneTasks(thirdFiltered)),
+      text: "Dolor sit amet",
+      doneClassName: "threeDone",
+    },
+    {
+      name: "four",
+      headerName: "headerFour",
+      tasks: mapTasks(notDoneTasks(fourthFiltered)),
+      doneTasks: mapTasks(doneTasks(fourthFiltered)),
+      text: "Adepiscent elit",
+      doneClassName: "fourDone",
+    },
+  ]
 
-  const three = threeFiltered.map((task) => (
-    <Task
-      key={task.id}
-      id={task.id}
-      task={task}
-      delete={props.delete}
-      taskDone={props.taskDone}
-    />
-  ));
-
-  const four = fourFiltered.map((task) => (
-    <Task
-      key={task.id}
-      id={task.id}
-      task={task}
-      delete={props.delete}
-      taskDone={props.taskDone}
-    />
-  ));
+  const renderGroups = (groups) => {
+    return groups.map(group => {
+      return (
+        // TODO: Change to separate component TaskGroup
+        <div key={group.name} className={group.name}>
+          <div className={group.headerName}>{group.text}</div>
+          <div className="list">{group.tasks}</div>
+          <div className={group.doneClassName}>
+            <div className={group.headerName}>Finished</div>
+            <div className="list">{group.doneTasks}</div>
+          </div>
+        </div>
+      )
+    });
+  }
 
   return (
     <>
-      <div className="one">
-        <div className="headerOne">Important and Urgent</div>
-        <div className="list">{one}</div>
-        <div className="oneDone">
-          <div className="headerOne">Finished</div>
-          <div className="list">{oneDone}</div>
-        </div>
-      </div>
-
-      <div className="two">
-        <div className="headerTwo">Important and Not Urgent</div>
-        <div className="list">{two}</div>
-      </div>
-      <div className="three">
-        <div className="headerThree">Unimportant and Urgent</div>
-        <div className="list">{three}</div>
-      </div>
-      <div className="four">
-        <div className="headerFour">Unimportant and Not Urgent</div>
-        <div className="list">{four}</div>
-      </div>
+      {renderGroups(groups)}
     </>
   );
 };
