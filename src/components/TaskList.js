@@ -1,14 +1,22 @@
 import Task from "./Task";
 
 const TaskList = (props) => {
-  const oneFiltered = props.tasks.filter((task) => task.status === "one");
-  const twoFiltered = props.tasks.filter((task) => task.status === "two");
-  const threeFiltered = props.tasks.filter((task) => task.status === "three");
-  const fourFiltered = props.tasks.filter((task) => task.status === "four");
+  const oneFiltered = props.tasks.filter((task) => task.status === "doFirst");
+  const twoFiltered = props.tasks.filter((task) => task.status === "schedule");
+  const threeFiltered = props.tasks.filter((task) => task.status === "delegate");
+  const fourFiltered = props.tasks.filter((task) => task.status === "dontDo");
 
-  
+  // const filterTask = (taskGroupName) => {
+  //   return props.tasks.filter((task) => task.status === taskGroupName);
+  // };
+
+  // const doFirstFiltered = filterTask("doFirst");
+  // const scheduleFiltered = filterTask("schedule");
+  // const delegateFiltered = filterTask("delegate");
+  // const dontDoFiltered = filterTask("dontDo");
+
   const oneNotDoneFiltered = oneFiltered.filter((task) => task.done === false);
-  
+
   const one = oneNotDoneFiltered.map((task) => (
     <Task
       key={task.id}

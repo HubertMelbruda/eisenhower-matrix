@@ -1,44 +1,20 @@
 import React, { Component } from "react";
 
 class InputForm extends Component {
-  minDate = new Date().toISOString().slice(0, 10);
-
-  state = {
-    text: "",
-    date: this.minDate,
-  };
-
   handleTextInput = (event) => {
-    this.setState({
-      text: event.target.value,
-    });
+    this.props.handleTextInput(event.target.value)
   };
 
   handleDate = (event) => {
-    this.setState({
-      date: event.target.value,
-    });
+    this.props.handleDate(event.target.value)
   };
 
   handleClick = (event) => {
-    const { text, date } = this.state;
-    const status = event.target.name;
-
-    if (this.state.text === "") {
-      alert("Please enter your task");
-    } else {
-      const addTask = this.props.addTask(text, date, status);
-
-      if (addTask) {
-        this.setState({
-          text: "",
-          date: this.minDate,
-        });
-      }
-    }
+    this.props.handleClick(event.target.name)
   };
 
   render() {
+    
     return (
       <>
         <div className="form">
@@ -49,7 +25,7 @@ class InputForm extends Component {
               id="text"
               name="text"
               placeholder="Create new task..."
-              value={this.state.text}
+              value={this.props.state.text}
               onChange={this.handleTextInput}
             />
           </label>
@@ -60,23 +36,23 @@ class InputForm extends Component {
               type="date"
               id="date"
               name="date"
-              value={this.state.date}
-              min={this.minDate}
+              value={this.props.minDate}
+              min={this.props.minDate}
               onChange={this.handleDate}
             />
           </label>
         </div>
         <div className="buttonsContainer">
-          <button className="btnOne" name="one" onClick={this.handleClick}>
+          <button className="btnOne" name="doFirst" onClick={this.handleClick}>
             1.Do First
           </button>
-          <button className="btnTwo" name="two" onClick={this.handleClick}>
+          <button className="btnTwo" name="schedule" onClick={this.handleClick}>
             2. Schedule
           </button>
-          <button className="btnThree" name="three" onClick={this.handleClick}>
+          <button className="btnThree" name="delegate" onClick={this.handleClick}>
             3. Delegate
           </button>
-          <button className="btnFour" name="four" onClick={this.handleClick}>
+          <button className="btnFour" name="dontDo" onClick={this.handleClick}>
             4. Don't do
           </button>
         </div>
