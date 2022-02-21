@@ -10,6 +10,8 @@ class App extends Component {
     tasks: [],
     text: "",
     date: this.minDate,
+    errorMessage: "",
+    isTasksDone: false,
   };
 
   counter = 1;
@@ -27,6 +29,7 @@ class App extends Component {
   };
 
   handleClick = (tasksName) => {
+    this.setState({ errorMessage: "" });
     const task = {
       id: this.counter,
       text: this.state.text,
@@ -36,7 +39,7 @@ class App extends Component {
     };
 
     if (this.state.text === "") {
-      alert("Please enter your task");
+      this.setState({ errorMessage: "Please type the task name in the input." });
     } else {
       this.setState((prevState) => ({
         tasks: [...prevState.tasks, task],
@@ -64,12 +67,11 @@ class App extends Component {
 
     this.setState({
       tasks,
+      isTasksDone: true,
     });
   };
 
   render() {
-    console.log(this.state);
-    console.log(this.minDate);
     return (
       <>
         <div className="mainDiv">
@@ -84,6 +86,7 @@ class App extends Component {
           <div className="container">
             <TaskList
               tasks={this.state.tasks}
+              state={this.state}
               delete={this.handleDelete}
               taskDone={this.handleTaskDone}
             />

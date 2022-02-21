@@ -75,7 +75,7 @@ const TaskList = (props) => {
         <div className="headerOne">Do First</div>
         <div className="list">{one}</div>
         <div className="oneDone">
-          <div className="headerOne">Finished</div>
+          {props.state.isTasksDone ? <div className="headerOne">Finished</div> : null }
           <div className="list">{oneDone}</div>
         </div>
       </div>
