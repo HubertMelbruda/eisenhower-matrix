@@ -28,6 +28,7 @@ class InputForm extends Component {
               value={this.props.state.text}
               onChange={this.handleTextInput}
             />
+            <p>{this.props.state.errorMessage}</p>
           </label>
 
           <label>
