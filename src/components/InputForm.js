@@ -13,6 +13,12 @@ class InputForm extends Component {
     this.props.handleClick(event.target.name)
   };
 
+  showErrorMessage = () => {
+    if (this.props.state.showErrorMsg) {
+      return <p>Please type the task name in the input.</p>
+    }
+  }
+
   render() {
     
     return (
@@ -28,7 +34,7 @@ class InputForm extends Component {
               value={this.props.state.text}
               onChange={this.handleTextInput}
             />
-            <p>{this.props.state.errorMessage}</p>
+            {this.showErrorMessage()}
           </label>
 
           <label>
