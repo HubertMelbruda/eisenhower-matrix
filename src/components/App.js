@@ -3,6 +3,7 @@ import "./App.css";
 import InputForm from "./InputForm";
 import TaskList from "./TaskList";
 
+
 class App extends Component {
   minDate = new Date().toISOString().slice(0, 10);
 
@@ -35,6 +36,7 @@ class App extends Component {
       date: this.state.date,
       status: tasksName,
       done: true,
+      doneDate: "",
     };
 
     if (this.state.text === "") {
@@ -57,10 +59,13 @@ class App extends Component {
   };
 
   handleTaskDone = (id) => {
+    const doneDate = new Date().toISOString().slice(0, 10);
+
     const tasks = this.state.tasks.map((task) => {
-      if (id === task.id) {
+      if (id === task.id ) {
         task.done = !task.done;
-      }
+        task.doneDate = doneDate;
+      } 
       return task;
     });
 

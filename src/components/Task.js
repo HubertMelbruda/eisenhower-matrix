@@ -1,3 +1,5 @@
+import { FaCalendarAlt } from "react-icons/fa";
+
 const Task = (props) => {
   return (
     <>
@@ -9,8 +11,16 @@ const Task = (props) => {
           checked={props.done}
           onChange={() => props.taskDone(props.id)}
         />
-        {props.task.text}
-        <div className="date">{props.task.date}</div>
+        <div className="taskText">{props.task.text}</div>
+
+        <div className="tooltip">
+          <FaCalendarAlt className="calendarIcon" />
+          <span className="tooltiptext">
+            <div className="dateStart">{"Added: " + props.task.date}</div>
+            {!props.task.done ? <div className="dateDone">{"Done: " + props.task.doneDate}</div> : null}
+            
+          </span>
+        </div>
         <button className="delButton" onClick={() => props.delete(props.id)}>
           X
         </button>
