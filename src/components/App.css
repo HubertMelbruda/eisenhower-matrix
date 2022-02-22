@@ -40,7 +40,6 @@
   align-items: center;
   width: 1100px;
   margin: 0 auto;
-
 }
 
 .buttonsContainer {
@@ -51,50 +50,49 @@
   margin: 0 auto;
 }
 
-.one,
-.two,
-.three,
-.four {
+.doFirst,
+.schedule,
+.delegate,
+.dontDo {
   display: flex;
   flex-direction: column;
   margin: 10px 10px;
   min-width: 500px;
   min-height: 500px;
-  /* border: 1px solid #000000; */
   border-radius: 10px;
   background-color: rgb(255, 255, 255);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-.btnOne,
-.one {
+.btnDoFirst,
+.doFirst {
   border: 1px solid rgb(138, 211, 54);
   border-left: 15px solid rgb(138, 211, 54);
 }
 
-.btnTwo,
-.two {
+.btnSchedule,
+.schedule {
   border: 1px solid rgb(45, 237, 255);
   border-left: 15px solid rgb(45, 237, 255);
 }
 
 
-.btnThree,
-.three {
+.btnDelegate,
+.delegate {
   border: 1px solid rgb(255, 173, 65);
   border-left: 15px solid rgb(255, 173, 65);
 }
 
-.btnFour,
-.four {
+.btnDontDo,
+.dontDo {
   border: 1px solid rgb(255, 97, 69);
   border-left: 15px solid rgb(255, 97, 69);
 }
 
-.headerOne,
-.headerTwo,
-.headerThree,
-.headerFour {
+.headerDoFirst,
+.headerSchedule,
+.headerDelegate,
+.headerDontDo {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,26 +102,26 @@
   border-bottom: 2px solid black;
 }
 
-.headerOne {
+.headerDoFirst {
   border-bottom: 3px solid rgb(138, 211, 54);
 }
 
-.headerTwo {
+.headerSchedule {
   border-bottom: 3px solid rgb(45, 237, 255);
 }
 
-.headerThree {
+.headerDelegate {
   border-bottom: 3px solid rgb(255, 173, 65);
 }
 
-.headerFour {
+.headerDontDo {
   border-bottom: 3px solid rgb(255, 97, 69);
 }
 
 .list {
   display: flex;
   flex-direction: column;
-  font-weight: bolder;
+  /* font-weight: bolder; */
 }
 
 .task {
@@ -161,10 +159,10 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-.btnOne,
-.btnTwo,
-.btnThree,
-.btnFour {
+.btnDoFirst,
+.btnSchedule,
+.btnDelegate,
+.btnDontDo {
   display: inline-block;
   outline: 0;
   cursor: pointer;
@@ -182,7 +180,7 @@
 }
 
 .drawButton:hover,
-.btnOne:hover {
+.btnDoFirst:hover {
   background: #cdffba;
   outline: 1px solid transparent;
   transition: 0.7s;
@@ -195,12 +193,10 @@
   color: #ffffff;
 }
 
-ul {
-  margin-left: 20px;
-}
-
-li {
-  margin-left: 10px;
+.error { 
+  color:rgb(255, 97, 69);
+  font-size: 18px;
+  margin-left: 130px;
 }
 
 label {

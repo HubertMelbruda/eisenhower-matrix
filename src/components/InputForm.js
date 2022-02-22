@@ -1,88 +1,54 @@
-import React, { Component } from "react";
+import Button from "./Button"
 
-class InputForm extends Component {
-  minDate = new Date().toISOString().slice(0, 10);
-
-  state = {
-    text: "",
-    date: this.minDate,
+const InputForm = (props) => {
+  const handleTextInput = (event) => {
+    props.handleTextInput(event.target.value);
   };
 
-  handleTextInput = (event) => {
-    this.setState({
-      text: event.target.value,
-    });
+  const handleDate = (event) => {
+    props.handleDate(event.target.value);
   };
 
-  handleDate = (event) => {
-    this.setState({
-      date: event.target.value,
-    });
+  const handleClick = (event) => {
+    props.handleClick(event.target.name);
   };
 
-  handleClick = (event) => {
-    const { text, date } = this.state;
-    const status = event.target.name;
+  return (
+    <>
+      <div className="form">
+        <label htmlFor="input">
+          Create new task:
+          <input
+            type="text"
+            id="text"
+            name="text"
+            placeholder="Create new task..."
+            value={props.state.text}
+            onChange={handleTextInput}
+          />
+          <p className="error">{props.state.errorMessage}</p>
+        </label>
 
-    if (this.state.text === "") {
-      alert("Please enter your task");
-    } else {
-      const addTask = this.props.addTask(text, date, status);
-
-      if (addTask) {
-        this.setState({
-          text: "",
-          date: this.minDate,
-        });
-      }
-    }
-  };
-
-  render() {
-    return (
-      <>
-        <div className="form">
-          <label htmlFor="input">
-            Create new task:
-            <input
-              type="text"
-              id="text"
-              name="text"
-              placeholder="Create new task..."
-              value={this.state.text}
-              onChange={this.handleTextInput}
-            />
-          </label>
-
-          <label>
-            The end of task:
-            <input
-              type="date"
-              id="date"
-              name="date"
-              value={this.state.date}
-              min={this.minDate}
-              onChange={this.handleDate}
-            />
-          </label>
-        </div>
-        <div className="buttonsContainer">
-          <button className="btnOne" name="one" onClick={this.handleClick}>
-            1.Do First
-          </button>
-          <button className="btnTwo" name="two" onClick={this.handleClick}>
-            2. Schedule
-          </button>
-          <button className="btnThree" name="three" onClick={this.handleClick}>
-            3. Delegate
-          </button>
-          <button className="btnFour" name="four" onClick={this.handleClick}>
-            4. Don't do
-          </button>
-        </div>
-      </>
-    );
-  }
-}
+        <label>
+          The end of task:
+          <input
+            type="date"
+            id="date"
+            name="date"
+            value={props.minDate}
+            min={props.minDate}
+            onChange={handleDate}
+          />
+        </label>
+      </div>
+      <div className="buttonsContainer">
+        <Button text={"1.Do First"} className={"btnDoFirst"} name={"doFirst"} onClick={handleClick}/>
+        <Button text={"2. Schedule"} className={"btnSchedule"} name={"schedule"} onClick={handleClick}/>
+        <Button text={"3. Delegate"} className={"btnDelegate"} name={"delegate"} onClick={handleClick}/>
+        <Button text={"4. Don't do"} className={"btnDontDo"} name={"dontDo"} onClick={handleClick}/>
+      </div>
+    </>
+  );
+};
 
 export default InputForm;
