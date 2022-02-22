@@ -11,11 +11,12 @@ const Task = (props) => {
         />
         {props.task.text}
         <div className="date">{props.task.date}</div>
-        <button className="delButton" onClick={() => props.delete(props.id)}>X</button>
+        <button className="delButton" onClick={() => props.delete(props.id)}>
+          X
+        </button>
       </div>
     </>
   );
 };
 
 export default Task;
-

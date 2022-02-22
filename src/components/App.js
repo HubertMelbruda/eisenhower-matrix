@@ -11,7 +11,6 @@ class App extends Component {
     text: "",
     date: this.minDate,
     errorMessage: "",
-    isTasksDone: false,
   };
 
   counter = 1;
@@ -35,11 +34,13 @@ class App extends Component {
       text: this.state.text,
       date: this.state.date,
       status: tasksName,
-      done: false,
+      done: true,
     };
 
     if (this.state.text === "") {
-      this.setState({ errorMessage: "Please type the task name in the input." });
+      this.setState({
+        errorMessage: "Please type the task name in the input.",
+      });
     } else {
       this.setState((prevState) => ({
         tasks: [...prevState.tasks, task],
@@ -56,9 +57,7 @@ class App extends Component {
   };
 
   handleTaskDone = (id) => {
-    let tasks = [...this.state.tasks];
-
-    tasks = tasks.map((task) => {
+    const tasks = this.state.tasks.map((task) => {
       if (id === task.id) {
         task.done = !task.done;
       }
@@ -67,7 +66,6 @@ class App extends Component {
 
     this.setState({
       tasks,
-      isTasksDone: true,
     });
   };
 
@@ -86,7 +84,6 @@ class App extends Component {
           <div className="container">
             <TaskList
               tasks={this.state.tasks}
-              state={this.state}
               delete={this.handleDelete}
               taskDone={this.handleTaskDone}
             />

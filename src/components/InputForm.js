@@ -1,3 +1,5 @@
+import Button from "./Button"
+
 const InputForm = (props) => {
   const handleTextInput = (event) => {
     props.handleTextInput(event.target.value);
@@ -40,18 +42,10 @@ const InputForm = (props) => {
         </label>
       </div>
       <div className="buttonsContainer">
-        <button className="btnOne" name="doFirst" onClick={handleClick}>
-          1.Do First
-        </button>
-        <button className="btnTwo" name="schedule" onClick={handleClick}>
-          2. Schedule
-        </button>
-        <button className="btnThree" name="delegate" onClick={handleClick}>
-          3. Delegate
-        </button>
-        <button className="btnFour" name="dontDo" onClick={handleClick}>
-          4. Don't do
-        </button>
+        <Button text={"1.Do First"} className={"btnDoFirst"} name={"doFirst"} onClick={handleClick}/>
+        <Button text={"2. Schedule"} className={"btnSchedule"} name={"schedule"} onClick={handleClick}/>
+        <Button text={"3. Delegate"} className={"btnDelegate"} name={"delegate"} onClick={handleClick}/>
+        <Button text={"4. Don't do"} className={"btnDontDo"} name={"dontDo"} onClick={handleClick}/>
       </div>
     </>
   );
